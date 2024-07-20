@@ -32,7 +32,7 @@ const App = () => {
           ),
           path:     'proposals'
         },{
-          element:  <h1>Hola</h1>,
+          element:  <h1>Login</h1>,
           path:     'login'
         }
       ]
