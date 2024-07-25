@@ -1,11 +1,19 @@
 
-import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 
 
-export function IsPrivateView({user, children}) {
-    console.log('user: ', user)
-    if (!user.authenticated) {
-        return <Navigate to='/login' replace />
-    }
-    return children
+export function IsPrivateView({user}) {
+
+    const navigate = useNavigate();
+
+    useEffect( () => {
+        if (!user.authenticated) {
+            navigate('/login')
+        }
+    },[] );
+    
+    return <Outlet/>
+
+
 };

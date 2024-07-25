@@ -25,15 +25,16 @@ const App = () => {
           element:    <h1>is Home</h1>,
           path:       '/'
         },{
-          element:  (
-            <IsPrivateView user={user}>
-              <h1>proposals</h1>
-            </IsPrivateView>
-          ),
-          path:     'proposals'
-        },{
-          element:  <h1>Login</h1>,
-          path:     'login'
+          element:  <IsPrivateView user={user}/>,
+          children: [
+            {
+              element:  <h1>proposals</h1>,
+              path:     'proposals'
+            },{
+              element:  <h1>login</h1>,
+              path:     'login'
+            }
+          ]
         }
       ]
     }
