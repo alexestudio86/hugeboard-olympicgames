@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 
 
-export function IsPrivateView({user}) {
+export function IsPrivateView({user, children}) {
 
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ export function IsPrivateView({user}) {
         }
     },[] );
     
-    return <Outlet/>
+    return children ?? <Outlet/>
 
 
 };

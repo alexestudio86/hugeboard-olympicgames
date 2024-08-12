@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { LoginProvider } from "../context/LoginProvider";
-import { Navbar } from "../components/Navbar";
+import { HeaderNav } from "../components/Header.Nav";
 
 export function GeneralLayout({children}) {
 
 
     return (
         <LoginProvider>
-            <Navbar/>
+            <HeaderNav/>
             {
                 children
                 ??

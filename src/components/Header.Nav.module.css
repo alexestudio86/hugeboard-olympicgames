@@ -1,0 +1,68 @@
+nav{
+    background-color: var(--theme-color-two);
+    color:            var(--color-white);
+    display:          flex;
+    flex-wrap:        nowrap;
+    justify-content:  inherit;
+    align-items:      center;
+    justify-content:  space-between;
+    padding:          2px;
+  }
+
+  nav > div {
+    max-width:          1200px;
+    margin:             auto;
+    display:            flex;
+    flex-wrap:          inherit;
+    align-items:        center;
+    justify-content:    space-between;
+  }
+
+  /* BUTTONS CONTAINER*/
+  nav > div > div > ul{
+    display: flex;
+    justify-content: start;
+  }
+
+  /* W3-BUTTON */
+  nav > div > a, nav > div > button, nav > div > div > ul > li > a, nav > div > div > form > button {
+    background-color: inherit;
+    border:           none;
+    color:            inherit;
+    cursor:           pointer;
+    font-size:        initial;
+    overflow:         hidden;
+    padding:          8px 16px;
+    text-decoration:  none;
+    user-select:      none;
+    white-space:      nowrap;
+    margin:           4px;
+  }
+
+  /* W3-BAR-ITEM */
+  nav > div > div > ul > li{
+    border:           none;
+    display:          block;
+    outline:          0;
+    width:            auto;
+    margin:           0;
+    padding:          0;
+  }
+
+/* HOVER*/
+  nav > div > a:hover, nav > div > a.active, nav > div > button:hover, nav > div > button.active, nav > div > div > ul > li > a:hover, nav > div > div > ul > li > a.active, nav > div > div > form > button:hover {
+    color:            var(--theme-color-two);
+    background-color: var(--theme-color-one);
+  }
+
+  nav > div > form > input{
+    border:           none;
+    display:          block;
+    outline:          0;
+    width:            100%;
+    margin:           8px 0;
+  }
+
+  nav > div > form > button::after{
+    content:          '🔎';
+  }
