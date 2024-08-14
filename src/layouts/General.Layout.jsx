@@ -8,11 +8,15 @@ export function GeneralLayout({children}) {
     return (
         <LoginProvider>
             <HeaderNav/>
-            {
-                children
-                ??
-                <Outlet/>
-            }
+            <div className="light-grey">
+                <div className="container white">
+                    {
+                        children
+                        ??
+                        <Outlet/>
+                    }
+                </div>
+            </div>
         </LoginProvider>
     )
 }

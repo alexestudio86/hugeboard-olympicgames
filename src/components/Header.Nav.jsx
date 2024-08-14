@@ -20,13 +20,13 @@ export function HeaderNav() {
     return (
         <nav>
             <div>
-                <NavLink to='/' end style={ ({isActive}) => ({ background: `var(${ isActive ? '--theme-color-one' : ''})`, color: `var(${ isActive ? '--theme-color-two' : ''})` }) }>{document.title}</NavLink>
+                <NavLink to='/' end >{document.title}</NavLink>
                 <button style={{display:'none'}}>Open</button>
                 <div>
                     <ul>
                         {pages.map( (page, index) => (
                             <li key={index}>
-                                <NavLink to={page.path} end style={ ({isActive}) => ({ background: `var(${ isActive ? '--theme-color-one' : ''})`, color: `var(${ isActive ? '--theme-color-two' : ''})` }) } >{page.title}</NavLink>
+                                <NavLink to={page.path} end >{page.title}</NavLink>
                             </li>
                         ))}
                     </ul>

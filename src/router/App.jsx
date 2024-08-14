@@ -2,10 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import { GeneralLayout } from "../layouts/General.Layout";
   import { IsErrorView } from "../views/IsError.View";
   import { IsPrivateView } from "../views/IsPrivate.View.jsx";
-    import { HomeLayout } from "../layouts/Home.Layout.jsx";
+    import {HomeLayout} from "../layouts/Home.Layout.jsx";
     import { LoginLayout } from "../layouts/Login.Layout.jsx";
     import '../css/val.min.css';
-import 'w3-css/w3.css';
 import '../fontAwesome.js';
 import { RouterProvider } from "react-router-dom";
 import { useLoginContext } from "../context/LoginProvider.jsx";
@@ -22,7 +21,7 @@ const App = () => {
       children: [
         {
           index:      true,
-          element:    <h1>is Home</h1>,
+          element:    <HomeLayout/>,
           path:       '/'
         },{
           element: <IsPrivateView user={user} />,
@@ -36,7 +35,7 @@ const App = () => {
           element:  <h1>analytics</h1>,
           path:     'analytics'
         },{
-          element:  <h1>login</h1>,
+          element:  <LoginLayout/>,
           path:     'login'
         }
       ]
