@@ -1,0 +1,20 @@
+.navbar {
+  position:           relative;
+  display:            flex;
+  -webkit-box-align:  center;
+  align-items:        center;
+}
+.navbar-brand {
+  display:            inline-block;
+  font-size:          1.25rem;
+}
+.navbar-collapse {
+  -webkit-box-flex:   1;
+  flex-grow:          1;
+  -webkit-box-align:  center;
+  align-items:        center;
+}
+.navbar-nav {
+  display:            flex;
+  list-style:         none;
+}
