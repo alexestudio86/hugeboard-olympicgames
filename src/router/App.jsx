@@ -3,7 +3,7 @@ import { GeneralLayout } from "../layouts/General.Layout";
   import { IsErrorView } from "../views/IsError.View";
   import { IsPrivateView } from "../views/IsPrivate.View.jsx";
     import { CPRPage } from "../pages/CPR.Page.jsx"
-      import { getAccounts } from "../context/DataProvider.jsx";
+      import { getData } from "../loader/DataLoader.jsx";
     import {HomeLayout} from "../layouts/Home.Layout.jsx";
     import { LoginLayout } from "../layouts/Login.Layout.jsx";
     import '../css/val.min.css';
@@ -35,8 +35,7 @@ const App = () => {
           ]
         },{
           element:  <CPRPage/>,
-          path:     'cpr',
-          loader:   getAccounts
+          path:     'cpr'
         },{
           element:  <LoginLayout/>,
           path:     'login'

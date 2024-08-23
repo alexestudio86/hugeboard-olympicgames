@@ -1,11 +1,10 @@
-import { Fragment, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
-import { getData } from "../context/DataProvider";
+import { useDataContext } from "../context/DataProvider";
 
 
 export function CPRPage() {
 
-    const {accounts} = useLoaderData();
+    const {accounts} = useDataContext()
+
     const filter2023 = (revenue) => {
         const newMapa = revenue.filter( r => { return new Date(r.date.seconds*1000) > new Date( new Date().setFullYear(2022, 11, 31) ) && new Date(r.date.seconds*1000) < new Date( new Date().setFullYear(2023, 11, 31) ) } );
         const newRed = newMapa.reduce( (accumulator, item) => {return accumulator += item.quantity},0 );
@@ -33,7 +32,7 @@ export function CPRPage() {
                     </tr>
                     {
                         accounts
-                        &&
+                        ?
                             accounts.length > 0
                             ?
                                 accounts.map( (account, index) => (
@@ -47,6 +46,8 @@ export function CPRPage() {
                                 ) )
                             :
                                 <tr>No accounts</tr>
+                        :
+                        <tr>No data</tr>
                     }
                 </tbody>
             </table>

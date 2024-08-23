@@ -1,37 +1,39 @@
-import { useState } from 'react';
-import {db} from '../config/firebase.js';
-import {query, collection, onSnapshot, doc, getDoc} from 'firebase/firestore';
+import { createContext, useContext, useEffect, useState } from "react";
+import { db } from "../config/firebase";
+import { query, collection, onSnapshot } from "firebase/firestore";
 
 
-export const getAccounts = async() => {
-    const [accounts, setAccounts] = useState();
-    try {
-        //For make a request inside object, you need create index (this can be created pushing in link console), is not necesary short by, 
-        const queryCountries   =   await query(collection(db, "hugeBoard", "cpr", "accounts") );
-        //const queryOrders   =   await query(collection(db, 'orders'), where('created', '>=', dayFiltered), orderBy('created', 'desc'));
-        onSnapshot(queryCountries, (querySnapshot) => {
-            setAccounts(
-                querySnapshot.docs.map( doc => (
-                    {id: doc.id, ...doc.data()}
-                ))
-            )
-        });
-        return {accounts};
-    } catch (error) {
-        return error
-    }
-};
+const dataContext = createContext();
+export function useDataContext() {
+    return useContext(dataContext)
+}
 
-export const getData = async( document ) => {
-    try {
-        const docRef    =   await getDoc( document );
-        if (docRef.exists()) {
-            console.log('docRef: ', docRef.data());
-            return docRef.data();
-        } else {
-            throw new Error("No se encontró el documento");
+
+export function DataProvider({children}) {
+    const [accounts, setaccounts] = useState([]);
+
+    const getData = async() => {
+        try {
+            const queryCountries   =   await query(collection(db, "hugeBoard", "cpr", "accounts") );
+            onSnapshot(queryCountries, (querySnapshot) => {
+                setaccounts(
+                    querySnapshot.docs.map( doc => (
+                        {id: doc.id, ...doc.data()}
+                    ))
+                )
+            })
+        } catch (error) {
+            return {error}            
         }
-    } catch (error) {
-        return error
-    }
+    };
+
+    useEffect( () => {
+        getData();
+    },[]);
+
+    return (
+        <dataContext.Provider value={{getData, accounts}}>
+            {children}
+        </dataContext.Provider>
+    )
 }
