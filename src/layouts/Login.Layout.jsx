@@ -10,7 +10,7 @@ export function LoginLayout() {
     return (
         <>
             {
-                user.authenticathed
+                user.authenticated
                 ?
                 <SignOutForm/>
                 :

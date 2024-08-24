@@ -1,7 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLoginContext } from "../context/LoginProvider";
 
 
 export function SignInForm() {
+
+    const {handleChange, login} = useLoginContext();
 
     return (
         <>
