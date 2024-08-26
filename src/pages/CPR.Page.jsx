@@ -31,23 +31,15 @@ export function CPRPage() {
                         <th>Ingresos 2024</th>
                     </tr>
                     {
-                        accounts
-                        ?
-                            accounts.length > 0
-                            ?
-                                accounts.map( (account, index) => (
-                                    <tr key={index}>
-                                        <td>{account.accountManager.name}</td>
-                                        <td>{account.name}</td>
-                                        <td>{account.segmentation.name}</td>
-                                        <td>{filter2023(account.revenue)}</td>
-                                        <td>{filter2024(account.revenue)}</td>
-                                    </tr>
-                                ) )
-                            :
-                                <tr>No accounts</tr>
-                        :
-                        <tr>No data</tr>
+                        accounts?.map( (account, index) => (
+                            <tr key={index}>
+                                <td>{account.salesManager.name}</td>
+                                <td>{account.name}</td>
+                                <td>{account.marketSegment.name}</td>
+                                <td>{filter2023(account.revenue)}</td>
+                                <td>{filter2024(account.revenue)}</td>
+                            </tr>
+                        ) )
                     }
                 </tbody>
             </table>

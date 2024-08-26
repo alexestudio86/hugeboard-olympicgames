@@ -1,19 +1,20 @@
 
 import { useEffect } from "react";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useLoginContext } from "../context/LoginProvider";
 
 
-export function IsPrivateView({user, children}) {
+export function IsPrivateView({children}) {
 
+    const {user} = useLoginContext();
     const navigate = useNavigate();
 
     useEffect( () => {
         if (!user.authenticated) {
-            navigate('/login')
+            navigate('/login', { replace: true })
         }
     },[] );
     
-    return children ?? <Outlet/>
-
+    return children ? children : <Outlet />;;
 
 };

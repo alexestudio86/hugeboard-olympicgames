@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLoginContext } from "../context/LoginProvider";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export function SignInForm() {
@@ -16,7 +18,13 @@ export function SignInForm() {
                                 <FontAwesomeIcon icon="fa-regular fa-user" />
                             </span>
                         </div>
-                        <form className="container" onSubmit={ e => {e.preventDefault();login()}}>
+                        <form
+                            className="container"
+                            onSubmit={ e => {
+                                    e.preventDefault();
+                                    login();
+                                }}
+                            >
                             <div className="section">
                                 <label htmlFor="email"><b>Username</b></label>
                                 <input

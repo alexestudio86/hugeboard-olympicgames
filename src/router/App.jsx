@@ -3,7 +3,6 @@ import { GeneralLayout } from "../layouts/General.Layout";
   import { IsErrorView } from "../views/IsError.View";
   import { IsPrivateView } from "../views/IsPrivate.View.jsx";
     import { CPRPage } from "../pages/CPR.Page.jsx"
-      import { getData } from "../loader/DataLoader.jsx";
     import {HomeLayout} from "../layouts/Home.Layout.jsx";
     import { LoginLayout } from "../layouts/Login.Layout.jsx";
     import '../css/val.min.css';
@@ -26,16 +25,13 @@ const App = () => {
           element:    <HomeLayout/>,
           path:       '/'
         },{
-          element: <IsPrivateView user={user} />,
-          children: [
-            {
-              element:  <h1>analytics</h1>,
-              path:     'analytics'
-            }
-          ]
+          path:     'cpr',
+          element: (<IsPrivateView>
+                      <CPRPage/>
+                    </IsPrivateView>),
         },{
-          element:  <CPRPage/>,
-          path:     'cpr'
+          element:  <h1>analytics</h1>,
+          path:     'analytics'
         },{
           element:  <LoginLayout/>,
           path:     'login'

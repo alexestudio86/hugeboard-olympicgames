@@ -28,7 +28,7 @@ export function LoginProvider ( {children} ) {
     const login = async() => {
         setUser({...user, loader:true })
         try {
-            const userCredetntials = await signInWithEmailAndPassword(auth, user.email, user.password);
+            await signInWithEmailAndPassword(auth, user.email, user.password);
             setUser({...user, authenticated:true, loader:false });
         } catch (error) {
             console.log(`Code: ${error.code}, message: ${error.message}`);
@@ -49,7 +49,7 @@ export function LoginProvider ( {children} ) {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             currentUser && setUser({...user, email: currentUser.email, authenticated: true});
         });
         return () => unsubscribe();
