@@ -25,10 +25,13 @@ const App = () => {
           element:    <HomeLayout/>,
           path:       '/'
         },{
-          path:     'cpr',
-          element: (<IsPrivateView>
-                      <CPRPage/>
-                    </IsPrivateView>),
+          element:  <IsPrivateView/>,
+          children: [
+            {
+              element:  <CPRPage/>,
+              path:     'cpr'
+            }
+          ]
         },{
           element:  <h1>analytics</h1>,
           path:     'analytics'

@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useLoginContext } from "../context/LoginProvider";
 
 
@@ -15,6 +15,6 @@ export function IsPrivateView({children}) {
         }
     },[] );
     
-    return children ? children : <Outlet />;;
+    return children ? children : <Outlet/>;
 
 };

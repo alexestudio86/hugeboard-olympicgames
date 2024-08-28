@@ -33,11 +33,11 @@ export function CPRPage() {
                     {
                         accounts?.map( (account, index) => (
                             <tr key={index}>
-                                <td>{account.salesManager.name}</td>
-                                <td>{account.name}</td>
-                                <td>{account.marketSegment.name}</td>
-                                <td>{filter2023(account.revenue)}</td>
-                                <td>{filter2024(account.revenue)}</td>
+                                <td>{account.salesManager ? account.salesManager.name : 'X'}</td>
+                                <td>{account.name ?? 'X'}</td>
+                                <td>{account.marketSegment ? account.marketSegment.name : 'X'}</td>
+                                <td>{account.revenue ? filter2023(account.revenue) : 0}</td>
+                                <td>{account.revenue ? filter2024(account.revenue) : 0}</td>
                             </tr>
                         ) )
                     }

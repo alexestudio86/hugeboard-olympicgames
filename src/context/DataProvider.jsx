@@ -11,26 +11,20 @@ export function useDataContext() {
 export function DataProvider({children}) {
 
     const [accounts, setAccounts] = useState([]);
-
-    const getData = async() => {
-        try {
-            const queryCountries   =   await query(collection(db, "hugeBoard", "cpr", "accounts"));
-            onSnapshot(queryCountries, (querySnapshot) => {
-                setAccounts(
-                    querySnapshot.docs.map( doc => (
-                        {id: doc.id, ...doc.data()}
-                    ))
-                )
-            });
-            console.log('Accounts: ', accounts);
-        } catch (error) {
-            return {error}            
-        }
-    };
     
     useEffect( () => {
-        getData();
-    }, []);
+        const queryCountries   =   query(collection(db, "hugeBoard", "cpr", "accounts"));
+        const unsuscribe = onSnapshot(queryCountries, (querySnapshot) => {
+            setAccounts(
+                querySnapshot.docs.map( doc => (
+                    {id: doc.id, ...doc.data()}
+                ))
+            )
+        });
+        return () => {
+            unsuscribe();
+        };
+    }, [] );
 
     return (
         <dataContext.Provider value={{accounts}}>
