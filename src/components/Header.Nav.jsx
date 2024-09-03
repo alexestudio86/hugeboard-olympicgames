@@ -6,11 +6,8 @@ export function HeaderNav() {
 
     const pages = [
         {
-            title:  'Clean Report Maintain',
-            path:   'cpr'
-        },{
-            title:  'Analytics',
-            path:   'analytics'
+            title:  'Producción',
+            path:   'production'
         },{
             title:  'Login',
             path:   'login'

@@ -1,19 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import { GeneralLayout } from "../layouts/General.Layout";
-  import { IsErrorView } from "../views/IsError.View";
-  import { IsPrivateView } from "../views/IsPrivate.View.jsx";
-    import { CPRPage } from "../pages/CPR.Page.jsx"
-    import {HomeLayout} from "../layouts/Home.Layout.jsx";
-    import { LoginLayout } from "../layouts/Login.Layout.jsx";
-    import '../css/val.min.css';
+import '../css/val.min.css';
 import '../fontAwesome.js';
+  import { IsErrorView } from "../views/IsError.View";
+  import { HomeLayout } from "../layouts/Home.Layout.jsx";
+  import { IsPrivateView } from "../views/IsPrivate.View.jsx";
+    import { ProductionPage } from "../pages/Production.Page.jsx";
+  import { LoginLayout } from "../layouts/Login.Layout.jsx";
 import { RouterProvider } from "react-router-dom";
-import { useLoginContext } from "../context/LoginProvider.jsx";
 
 
 const App = () => {
-
-  const {user} = useLoginContext();
 
   const router = createBrowserRouter([
     {
@@ -28,13 +25,10 @@ const App = () => {
           element:  <IsPrivateView/>,
           children: [
             {
-              element:  <CPRPage/>,
-              path:     'cpr'
+              element:  <ProductionPage/>,
+              path:     'production'
             }
           ]
-        },{
-          element:  <h1>analytics</h1>,
-          path:     'analytics'
         },{
           element:  <LoginLayout/>,
           path:     'login'

@@ -44,7 +44,7 @@ export function LoginProvider ( {children} ) {
             await signOut(auth);
             setUser({...user, authenticated:false});
         } catch (error) {
-            return error;
+            console.log(error);
         }
     }
 

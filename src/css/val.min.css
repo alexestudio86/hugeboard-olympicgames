@@ -3,8 +3,8 @@
 /* End extract */
 /* VARIABLES */
 :root{
-    --theme-color-one:      #19647E;
-    --theme-color-two:      #28A3CC;
+    --theme-color-one:      #114253;
+    --theme-color-two:      #19647E;
     --theme-color-three:    #66C2E1;
     --color-amber:          #ffc107;
     --color-aqua:           #00ffff;
@@ -517,7 +517,7 @@ a {
     display: table
 }
 
-.table-all {
+.table-all .border {
     border: 1px solid #ccc
 }
 
@@ -808,13 +808,13 @@ a {
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
+    display:    flex;
+    flex-wrap:  wrap;
+    width:      100%;
+    max-width:  100%;
 }
 .col, .half, .third, .twothird, .threequarter, .quarter {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%
+    flex: 1 0 0%;
 }
   
 .col.s1 {
@@ -1518,6 +1518,10 @@ a {
 
 .jumbo {
     font-size: 64px !important
+}
+
+.text-center {
+    text-align: center !important
 }
 
 .left-align {

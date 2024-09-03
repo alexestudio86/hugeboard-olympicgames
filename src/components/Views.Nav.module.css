@@ -1,0 +1,53 @@
+.theme-color-01{
+    background-color:   var(--theme-color-one) !important;
+    color:              var(--color-white) !important;
+}
+
+.theme-color-02{
+    background-color:   var(--theme-color-two) !important;
+    color:              var(--color-white) !important;
+}
+
+.btn, .button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.round {
+    border-radius: 6px 6px 0 0;
+}
+
+.btn:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.btn, .button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.disabled, .btn:disabled, .button:disabled {
+    cursor: not-allowed;
+    opacity: 0.3
+}
+
+.disabled *, :disabled * {
+    pointer-events: none
+}
+
+.btn.disabled:hover, .btn:disabled:hover {
+    box-shadow: none
+}
