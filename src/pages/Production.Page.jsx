@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDataContext } from "../context/DataProvider";
 import { formatCurrency, filterRevenue2023, filterMinutes2023, average2023, filterRevenue2024, filterMinutes2024, average2024 } from "./Production.Page.functions";
+import { FiltersNav } from "../components/Filters.Nav";
 import { ViewsNav } from "../components/Views.Nav";
 import { Table } from "../components/Table";
 import { CPI } from "../components/CPI";
 
 export function ProductionPage() {
 
-    const {accounts} = useDataContext();
-
-
-
+    const {accounts, test} = useDataContext();
+    const [accountsFiltered, setAccountsFiltered] = useState([...accounts]);
 
     const formatPorcent = (evt) => {
         if (evt > 1) {
@@ -70,7 +69,7 @@ export function ProductionPage() {
     const switchTab = () => {
         switch (tab) {
             case (0):
-                return <Table operations={{accounts, formatCurrency, filterRevenue2023, filterMinutes2023, average2023, filterRevenue2024, filterMinutes2024, average2024, formatPorcent, formatVariation, porcentVariation, quantityVariation}} />
+                return <Table operations={{accounts, formatCurrency, filterRevenue2023, filterMinutes2023, average2023, filterRevenue2024, filterMinutes2024, average2024, formatPorcent, formatVariation, porcentVariation, quantityVariation, test}} />
                 break;
             case (1):
                 return <CPI operations={{totals2023, formatCurrency}}/>
@@ -101,8 +100,15 @@ export function ProductionPage() {
     return (
         <>
             <h1 className="py-2">Clean Report Management</h1>
-            <ViewsNav operations={{tab, setTab}} />
-            { switchTab() }
+            <div className="row">
+                <div className="col m2">
+                    <FiltersNav data={{accountsFiltered}} />
+                </div>
+                <div className="col m10">
+                    <ViewsNav operations={{tab, setTab}} />
+                    { switchTab() }
+                </div>
+            </div>
         </>
     )
 }
