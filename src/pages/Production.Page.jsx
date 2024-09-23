@@ -9,7 +9,7 @@ import { CPI } from "../components/CPI";
 export function ProductionPage() {
 
     const {accounts, test} = useDataContext();
-    const [accountsFiltered, setAccountsFiltered] = useState([...accounts]);
+    const [dataFiltered, setDataFiltered] = useState({items:accounts, smFilter: []});
 
     const formatPorcent = (evt) => {
         if (evt > 1) {
@@ -100,14 +100,14 @@ export function ProductionPage() {
     return (
         <>
             <h1 className="py-2">Clean Report Management</h1>
-            <div className="row">
+            <div className='row'>
                 <div className="col m2">
-                    <FiltersNav data={{accountsFiltered}} />
+                    <FiltersNav data={{accounts, dataFiltered, setDataFiltered}} />
                 </div>
-                <div className="col m10">
+                <main className="col m10">
                     <ViewsNav operations={{tab, setTab}} />
                     { switchTab() }
-                </div>
+                </main>
             </div>
         </>
     )

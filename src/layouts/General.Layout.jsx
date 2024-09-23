@@ -9,7 +9,7 @@ export function GeneralLayout({children}) {
     return (
         <LoginProvider>
             <HeaderNav/>
-            <main className="light-grey py-2">
+            <div className="light-grey py-2">
                 <div className="container white p-3">
                     {
                         children
@@ -17,7 +17,7 @@ export function GeneralLayout({children}) {
                         <Outlet/>
                     }
                 </div>
-            </main>
+            </div>
             <Footer/>
         </LoginProvider>
     )
